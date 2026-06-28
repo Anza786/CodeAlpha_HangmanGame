@@ -1,6 +1,6 @@
 # 🎮 CodeAlpha Hangman Game
 
-A fun and interactive Hangman word-guessing game built for the **CodeAlpha Python Internship — Task 3**.
+A fun and interactive Hangman word-guessing game built for the **CodeAlpha Python Internship — Task 1**.
 
 > > **Note:**
 > The original task required a basic console-based Hangman game.
