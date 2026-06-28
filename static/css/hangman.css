@@ -1,0 +1,330 @@
+/* ================================================
+   CodeAlpha Hangman Game — hangman.css
+   ================================================ */
+
+:root {
+  --bg:      #0a0e1a;
+  --surface: #111827;
+  --card:    #1a2235;
+  --border:  #1f2d45;
+  --accent:  #3b82f6;
+  --green:   #10b981;
+  --red:     #ef4444;
+  --yellow:  #f59e0b;
+  --text:    #f1f5f9;
+  --muted:   #64748b;
+  --mono:    'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  background: var(--surface);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+}
+.nav-brand {
+  font-size: 20px; font-weight: 800; color: var(--text);
+}
+.nav-brand span { color: var(--text); }
+.accent { color: var(--accent) !important; }
+.nav-badge {
+  font-size: 11px; color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px;
+}
+.container {
+  max-width: 1100px; margin: 0 auto; padding: 0 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+/* ── HERO ── */
+.hero-section {
+  background: linear-gradient(135deg, #0f172a, #1e3a5f, #0f172a);
+  padding: 50px 0 40px; text-align: center;
+}
+.hero-emoji { font-size: 56px; margin-bottom: 12px; }
+.hero-title {
+  font-size: 40px; font-weight: 800; color: var(--text);
+  letter-spacing: -.5px; margin-bottom: 10px;
+}
+.hero-sub { font-size: 16px; color: var(--muted); }
+
+/* ── MAIN ── */
+.main-container {
+  max-width: 1100px; margin: 0 auto;
+  padding: 36px 20px 60px;
+  display: block;
+}
+.row { display: flex; flex-wrap: wrap; margin: 0 -12px; }
+.col-lg-5 { padding: 0 12px; width: 100%; }
+.col-lg-7 { padding: 0 12px; width: 100%; }
+@media(min-width: 992px) {
+  .col-lg-5 { width: 41.666%; }
+  .col-lg-7 { width: 58.333%; }
+}
+.g-4 { gap: 0; }
+.row.g-4 { gap: 24px 0; }
+
+/* ── WELCOME CARD ── */
+.welcome-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 36px;
+  text-align: center;
+}
+.wc-title {
+  font-size: 24px; font-weight: 800; margin-bottom: 28px; color: var(--text);
+}
+.rules-list { margin-bottom: 28px; text-align: left; }
+.rule-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  font-size: 15px; color: #cbd5e1;
+}
+.rule-item:last-child { border-bottom: none; }
+.rule-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+
+.stats-row {
+  display: flex; gap: 16px; justify-content: center; margin-bottom: 28px;
+}
+.stat-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 24px; text-align: center;
+}
+.stat-num { font-size: 28px; font-weight: 800; color: var(--accent); font-family: var(--mono); }
+.stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.btn-start {
+  display: block; width: 100%;
+  background: linear-gradient(135deg, var(--accent), #6366f1);
+  color: #fff; border-radius: 12px; padding: 16px;
+  font-size: 17px; font-weight: 700; text-decoration: none;
+  transition: all .2s;
+}
+.btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59,130,246,.3); color: #fff; }
+
+/* ── GAME CARD ── */
+.game-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px; padding: 28px;
+  height: 100%;
+}
+.card-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--muted); font-weight: 600; margin-bottom: 16px;
+}
+
+/* ── HANGMAN SVG ── */
+.hangman-wrap {
+  display: flex; justify-content: center; margin-bottom: 16px;
+}
+.hangman-svg { width: 180px; height: 220px; }
+
+/* ── WRONG COUNT ── */
+.wrong-info { text-align: center; margin-bottom: 16px; }
+.wrong-count-box { display: inline-flex; align-items: baseline; gap: 4px; }
+.wrong-num  { font-size: 36px; font-weight: 800; color: var(--red); font-family: var(--mono); }
+.wrong-slash{ font-size: 24px; color: var(--muted); }
+.wrong-max  { font-size: 24px; font-weight: 600; color: var(--muted); font-family: var(--mono); }
+.wrong-label{ font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* ── WRONG LETTERS ── */
+.wrong-letters-wrap { text-align: center; }
+.wl-label { font-size: 12px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.wl-list  { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.wl-badge {
+  background: rgba(239,68,68,.15); color: var(--red);
+  border: 1px solid rgba(239,68,68,.3);
+  border-radius: 6px; padding: 4px 10px;
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  text-transform: uppercase;
+}
+.wl-empty { font-size: 13px; color: var(--muted); }
+
+/* ── HINT ── */
+.hint-box {
+  background: rgba(245,158,11,.08);
+  border: 1px solid rgba(245,158,11,.2);
+  border-radius: 10px; padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px;
+}
+.hint-icon { font-size: 18px; }
+.hint-text { font-size: 14px; color: #fcd34d; }
+
+/* ── WORD DISPLAY ── */
+.word-display {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center; margin-bottom: 8px;
+}
+.letter-box {
+  width: 44px; height: 52px;
+  border-bottom: 3px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 22px; font-weight: 700;
+  color: var(--muted); text-transform: uppercase;
+  transition: all .3s;
+}
+.letter-box.revealed {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.word-length {
+  text-align: center; font-size: 12px; color: var(--muted);
+  margin-bottom: 20px; font-family: var(--mono);
+}
+
+/* ── REMAINING BAR ── */
+.remaining-bar-wrap { margin-bottom: 24px; }
+.remaining-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.remaining-bar-bg {
+  background: var(--border); border-radius: 6px; height: 8px; overflow: hidden;
+}
+.remaining-bar-fill {
+  height: 100%; border-radius: 6px;
+  background: linear-gradient(90deg, var(--green), var(--accent));
+  transition: width .5s ease;
+}
+
+/* ── KEYBOARD ── */
+.keyboard-section { margin-top: 4px; }
+.kb-label { font-size: 12px; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.keyboard { display: flex; flex-wrap: wrap; gap: 6px; }
+.key-btn {
+  width: 38px; height: 38px;
+  background: var(--surface); border: 1.5px solid var(--border);
+  color: var(--text); border-radius: 8px;
+  font-family: var(--mono); font-size: 14px; font-weight: 600;
+  cursor: pointer; text-transform: uppercase;
+  transition: all .15s;
+}
+.key-btn:hover:not([disabled]) {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+  transform: translateY(-2px);
+}
+.key-btn.key-correct {
+  background: rgba(16,185,129,.2); border-color: var(--green);
+  color: var(--green);
+}
+.key-btn.key-wrong {
+  background: rgba(239,68,68,.15); border-color: var(--red);
+  color: var(--red);
+}
+.key-btn[disabled] { cursor: not-allowed; opacity: .7; }
+
+/* ── STATUS BANNER ── */
+.status-banner {
+  border-radius: 14px; padding: 18px 24px;
+  font-size: 16px; font-weight: 600; margin-bottom: 24px;
+  text-align: center;
+}
+.won-banner  { background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.3); color: var(--green); }
+.lost-banner { background: rgba(239,68,68,.15);  border: 1px solid rgba(239,68,68,.3);  color: var(--red); }
+
+/* ── GAMEOVER BUTTONS ── */
+.gameover-btns { display: flex; gap: 12px; margin-top: 24px; }
+.btn-play-again {
+  flex: 1; background: linear-gradient(135deg, var(--accent), #6366f1);
+  color: #fff; border-radius: 12px; padding: 14px;
+  font-size: 15px; font-weight: 700; text-decoration: none; text-align: center;
+  transition: all .2s;
+}
+.btn-play-again:hover { transform: translateY(-2px); color: #fff; }
+.btn-home {
+  flex: 1; background: var(--surface); border: 1.5px solid var(--border);
+  color: var(--text); border-radius: 12px; padding: 14px;
+  font-size: 15px; font-weight: 700; text-decoration: none; text-align: center;
+  transition: all .2s;
+}
+.btn-home:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--surface); color: var(--muted);
+  padding: 20px 0; font-size: 13px; margin-top: 40px;
+  text-align: center;
+}
+.footer .container { display: block; }
+
+/* ── JUSTIFY CENTER ── */
+.justify-content-center { justify-content: center; }
+/* LIVES */
+.lives-wrap { text-align: center; margin-bottom: 16px; }
+.lives-list { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+.life { font-size: 22px; transition: all .3s; }
+.life-lost { filter: grayscale(1); opacity: .3; }
+/* ── ANIMATIONS ── */
+
+/* Letter Reveal Bounce */
+@keyframes bounce {
+  0%   { transform: scale(0); opacity: 0; }
+  50%  { transform: scale(1.3); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.letter-box.revealed {
+  animation: bounce 0.4s ease forwards;
+}
+
+/* Life Lost Shake */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%     { transform: translateX(-8px); }
+  40%     { transform: translateX(8px); }
+  60%     { transform: translateX(-6px); }
+  80%     { transform: translateX(6px); }
+}
+.life-lost {
+  animation: shake 0.5s ease;
+  filter: grayscale(1);
+  opacity: .3;
+}
+
+/* Hangman Parts Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; stroke-dashoffset: 100; }
+  to   { opacity: 1; stroke-dashoffset: 0; }
+}
+#h-head, #h-body, #h-larm, #h-rarm, #h-lleg, #h-rleg {
+  stroke-dasharray: 100;
+  transition: opacity 0.5s ease;
+}
+
+/* Keyboard Button Press */
+@keyframes keyPress {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+.key:active {
+  animation: keyPress 0.15s ease;
+}
+
+/* Win Confetti */
+@keyframes confetti-fall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.confetti {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  animation: confetti-fall 2.5s ease forwards;
+  z-index: 999;
+  pointer-events: none;
+}

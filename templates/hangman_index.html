@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-5"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hangman Game | CodeAlpha</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="{{ url_for('static', filename='css/hangman.css') }}" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-brand">🎮 <span>Hangman</span><span class="accent">Game</span></div>
+    <div class="nav-badge">CodeAlpha Internship</div>
+  </div>
+</nav>
+
+<div class="hero-section">
+  <div class="container text-center">
+    <div class="hero-emoji">🎯</div>
+    <h1 class="hero-title">Hangman Game</h1>
+    <p class="hero-sub">Guess the word before the hangman is complete!</p>
+  </div>
+</div>
+
+<div class="container main-container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+
+      <div class="welcome-card">
+        <h2 class="wc-title">How To Play</h2>
+        <div class="rules-list">
+          <div class="rule-item"><span class="rule-num">1</span> A random secret word is chosen</div>
+          <div class="rule-item"><span class="rule-num">2</span> Guess one letter at a time</div>
+          <div class="rule-item"><span class="rule-num">3</span> You have <strong>6 chances</strong> to guess wrong</div>
+          <div class="rule-item"><span class="rule-num">4</span> Reveal the full word to win!</div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Words</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Max Wrong</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">26</div>
+            <div class="stat-label">Letters</div>
+          </div>
+        </div>
+
+        <a href="/start" class="btn-start">🎮 Start Game</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container text-center">
+    <p>Built with 🐍 Python & Flask &nbsp;|&nbsp; CodeAlpha Python Internship</p>
+  </div>
+</footer>
+
+</body>
+</html>
